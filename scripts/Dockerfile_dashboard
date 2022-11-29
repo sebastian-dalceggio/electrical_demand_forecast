@@ -1,0 +1,4 @@
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+WORKDIR /usr/local/lib/python3.8/site-packages/electrical_demand/dashboard
+CMD streamlit run main.py

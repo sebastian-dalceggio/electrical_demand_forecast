@@ -1,0 +1,4 @@
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+WORKDIR /usr/local/lib/python3.8/site-packages/electrical_demand/database_api
+CMD ["uvicorn", "api:app", "--host=0.0.0.0", "--reload"]

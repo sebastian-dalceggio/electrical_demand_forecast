@@ -1,0 +1,7 @@
+airflow_image
+dags
+logs
+plugins
+docker-compose.yaml
+.env
+**/*.pyc

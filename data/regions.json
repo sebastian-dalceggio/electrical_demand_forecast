@@ -1,0 +1,112 @@
+[
+    {
+        "region": "BUENOS AIRES",
+        "api_ids": ["425", "426"],
+        "station": "EZEIZA AERO"
+    },
+    {
+        "region": "CATAMARCA",
+        "api_ids": ["1938"],
+        "station": "CATAMARCA AERO"
+    },
+    {
+        "region": "CHACO",
+        "api_ids": ["1892"],
+        "station": "RESISTENCIA AERO"
+    },
+    {
+        "region": "CHUBUT",
+        "api_ids": ["2543"],
+        "station": "COMODORO RIVADAVIA AERO"
+    },
+    {
+        "region": "CORDOBA",
+        "api_ids": ["1945"],
+        "station": "CORDOBA AERO"
+    },
+    {
+        "region": "CORRIENTES",
+        "api_ids": ["1893"],
+        "station": "CORRIENTES AERO"
+    },
+    {
+        "region": "ENTRE RIOS",
+        "api_ids": ["2541"],
+        "station": "PARANA AERO"
+    },
+    {
+        "region": "FORMOSA",
+        "api_ids": ["1886"],
+        "station": "FORMOSA AERO"
+    },
+    {
+        "region": "JUJUY",
+        "api_ids": ["1937"],
+        "station": "JUJUY AERO"
+    },
+    {
+        "region": "LA PAMPA",
+        "api_ids": ["427"],
+        "station": "SANTA ROSA AERO"
+    },
+    {
+        "region": "LA RIOJA",
+        "api_ids": ["1910"],
+        "station": "LA RIOJA AERO"
+    },
+    {
+        "region": "MENDOZA",
+        "api_ids": ["1946"],
+        "station": "MENDOZA AERO"
+    },
+    {
+        "region": "MISIONES",
+        "api_ids": ["2426"],
+        "station": "POSADAS AERO"
+    },
+    {
+        "region": "NEUQUEN",
+        "api_ids": ["2528"],
+        "station": "NEUQUEN AERO"
+    },
+    {
+        "region": "RIO NEGRO",
+        "api_ids": ["2525"],
+        "station": "VIEDMA AERO"
+    },
+    {
+        "region": "SALTA",
+        "api_ids": ["1933"],
+        "station": "SALTA AERO"
+    },
+    {
+        "region": "SAN JUAN",
+        "api_ids": ["1922"],
+        "station": "SAN JUAN AERO"
+    },
+    {
+        "region": "SAN LUIS",
+        "api_ids": ["1944"],
+        "station": "SAN LUIS AERO"
+    },
+    {
+        "region": "SANTA CRUZ",
+        "api_ids": ["2542"],
+        "station": "RIO GALLEGOS AERO"
+    },
+    {
+        "region": "SANTA FE",
+        "api_ids": ["2540"],
+        "station": "ROSARIO AERO"
+    },
+    {
+        "region": "SANTIAGO DEL ESTERO",
+        "api_ids": ["1905"],
+        "station": "SANTIAGO DEL ESTERO AERO"
+    },
+    {
+        "region": "TUCUMAN",
+        "api_ids": ["1936"],
+        "station": "TUCUMAN AERO"
+    }
+]
