@@ -17,6 +17,7 @@ def train_and_predictions(dataset):
     max_demand = dataset["demand"].max()
     dataset["demand"] = dataset["demand"] / max_demand
     dataset["temperature"].fillna(dataset["temperature_forecast"], inplace=True)
+    dataset.sort_index(inplace=True)
     dataset["temperature"] = dataset["temperature"].interpolate(method='linear').ffill()
     dataset.drop(columns=["temperature_forecast"], inplace=True)
     predict_dataset = dataset[dataset["demand"].isnull()]

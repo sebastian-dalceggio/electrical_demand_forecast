@@ -1,6 +1,6 @@
 # Argentine electricity demand forecast
 
-![Demand forecast](images/Graphic.png)
+![Demand forecast](images/demand.png)
 
 This project uses machine learning to obtain a model that allows us to forecast electricity demand in Argentina. This information is important to make a schedule for each generation plant. CAMMESA (Argentine Wholesale Electricity Market Clearing Company) makes its own predictions for this reason.
 
@@ -10,11 +10,11 @@ The `python` package `electrical_demand` was created using [poetry](https://pyth
 
 There is no predefined dataset with the information needed to train a model. That is why it was necessary to create it from scratch. Three different sources were used:
 
-    - Temperature historical and forecast: [Servicio Meteorológico Nacional (Argentine National Weather Service)](https://www.smn.gob.ar/descarga-de-datos)
-    - Electrical demand:
-        - Current: [API Camessa](https://api.cammesa.com/demanda-svc/swagger-ui.html#/)
-        - Historical: [Informe Mensual Octubre 2022 (Monthly report October 2022)](https://cammesaweb.cammesa.com/informe-sintesis-mensual/)
-    - Holidays: [Official Website of the Argentine Government](https://www.argentina.gob.ar/)
+- Temperature historical and forecast: [Servicio Meteorológico Nacional (Argentine National Weather Service)](https://www.smn.gob.ar/descarga-de-datos)
+- Electrical demand:
+    - Current: [API Camessa](https://api.cammesa.com/demanda-svc/swagger-ui.html#/)
+    - Historical: [Informe Mensual Octubre 2022 (Monthly report October 2022)](https://cammesaweb.cammesa.com/informe-sintesis-mensual/)
+- Holidays: [Official Website of the Argentine Government](https://www.argentina.gob.ar/)
 
 All data must be cleaned to get a useful dataset. To do this, a python package called `electrical_demand` was developed.
 
@@ -120,7 +120,12 @@ The `electrical_demand` python package was installed in a Docker image so that A
 Airflow is in charge of run all tasks. There are two dags:
 
 - data_preparation_dag: it creates the table in the database, loads the historical data to S3 and the database and runs the machine learning process. It has to be run only one time.
-- new_data_dag: it runs once a day to apply any change in the database model, download the new data and made the new forecast values of the demand. Each time it is called it trains again the model.
+
+![Data preparation dag](images/data_preparation_dag.png)
+
+- new_data_dag: it runs once a day to apply any change in the database model, downloads the new data and makes the new forecast values of the demand. Each time it is called it trains again the model.
+
+![New data dag](images/new_data_dag.png)
 
 All tasks run inside a docker container using an image where `eletrical_demand` is installed. This was a design decision to separate the task environment and the Airflow environment.
 
@@ -129,8 +134,10 @@ The airflow-web-server is available for the developer to enter and run and monit
 ## AWS
 
 All the infraestructure needed is built in AWS. The airflow run in an EC2 using docker-compose. The volume size (30 gb) and the type (t2.large) were selected to properly execute Airflow and Docker. The same docker-compose runs the database api and the dashboard as a separate containers. The database is an RDS.
-There are a VPC with public subnet for the EC2 and two privates ones for the databse. The VPC has an S3 endpoint to avoid going through internet to download the data. ECR is used to store the `electrical_demand` docker image.
+There are a VPC with public subnet for the EC2 and two privates ones for the databse. The VPC has an S3 endpoint to avoid going through internet to download the data. ECR is used to store the `electrical_demand` docker image. ECR is used to store the docker image.
 To restric the access to the resources were used security groups. The database only can be acceded from inside the VPC and the Airflow server can be accede from inside the VPC and from the developer IP.
+
+![Aws](images/aws.png)
 
 ## Terraform
 

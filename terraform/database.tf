@@ -32,9 +32,9 @@ resource "aws_security_group" "database_security_group" {
 
   ingress {
     cidr_blocks = [var.vpc_cidr_block]
-    from_port   = 0
-    protocol    = "-1"
-    to_port     = 0
+    from_port   = 5432
+    protocol    = "tcp"
+    to_port     = 5432
   }
 
   egress {
